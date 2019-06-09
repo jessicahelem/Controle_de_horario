@@ -1,8 +1,10 @@
-package com.example.controledehorarios;
+package com.example.controledehorarios.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.controledehorarios.R;
 
 public class declararAusencia extends AppCompatActivity {
 

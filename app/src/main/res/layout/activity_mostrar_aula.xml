@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.activity_ausencia">
+    tools:context=".activity.ActivityMostrarAula">
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_lista_ausencia"
+        android:id="@+id/rv_lista_aulas"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_adicionar_ausencia"
+        android:id="@+id/fab_adicionar_horario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add" />
-
 
 </android.support.design.widget.CoordinatorLayout>

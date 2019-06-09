@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_ausencia"></activity>
-        <activity android:name=".declararAusencia" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.ActivityMostrarAula"></activity>
+        <activity android:name=".activity.activity_ausencia" />
+        <activity android:name=".activity.declararAusencia" />
+        <activity android:name=".activity.ActivityRegistraAula">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
