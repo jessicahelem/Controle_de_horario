@@ -1,6 +1,4 @@
 package com.example.controledehorarios.models;
-import java.sql.Time;
-import java.util.Date;
 
 public class Ausencia {
     private long id;
@@ -9,11 +7,11 @@ public class Ausencia {
     public Turma turma;
     public boolean faltou;
     public int peso;
-    public Date data;
-    public Time horaInicio;
-    public Time horaFim;
+    public String data;
+    public String horaInicio;
+    public String horaFim;
 
-    public Ausencia(long id, String justificativa, Professor professor, Turma turma, boolean faltou, int peso, Date data, Time horaInicio, Time horaFim) {
+    public Ausencia(long id, String justificativa, Professor professor, Turma turma, boolean faltou, int peso, String data, String horaInicio, String horaFim) {
         this.id = id;
         this.justificativa = justificativa;
         this.professor = professor;
@@ -74,27 +72,27 @@ public class Ausencia {
         this.peso = peso;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Time getHoraInicio() {
+    public String getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(Time horaInicio) {
+    public void setHoraInicio(String horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public Time getHoraFim() {
+    public String getHoraFim() {
         return horaFim;
     }
 
-    public void setHoraFim(Time horaFim) {
+    public void setHoraFim(String horaFim) {
         this.horaFim = horaFim;
     }
 
