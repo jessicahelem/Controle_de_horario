@@ -7,7 +7,7 @@ public class Professor {
     public String nome;
     public String cpf;
 
-    public Professor(int matricula, String nome, String cpf) {
+    public Professor(String matricula, String nome, String cpf) {
         this.matricula = matricula;
         this.nome = nome;
         this.cpf = cpf;

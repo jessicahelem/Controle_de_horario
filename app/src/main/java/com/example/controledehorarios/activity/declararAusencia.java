@@ -30,15 +30,14 @@ public class declararAusencia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ausencia);
+        setContentView(R.layout.activity_registrar_ausencia);
 
         spinnerTurma = findViewById(R.id.spinner_turma);
         edit_justificativa = findViewById(R.id.edit_justificativa);
         edit_data = findViewById(R.id.edit_data);
         edit_hora = findViewById(R.id.edit_hora);
         switch_ausencia = findViewById(R.id.switch_ausencia);
-        salvar_ausencia = findViewById(R.id.cadastrar_ausencia_button);
-        salvar_ausencia.setOnClickListener(onSave);
+
     }
 
     private View.OnClickListener onSave = new View.OnClickListener() {

@@ -1,12 +1,14 @@
 package com.example.controledehorarios.adapters;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.controledehorarios.R;
 import com.example.controledehorarios.models.Ausencia;
@@ -17,13 +19,13 @@ public class ListaAusenciaAdapter extends RecyclerView.Adapter<ListaAusenciaAdap
 
     private Context context;
     private List<Ausencia>ausencias;
+    private Ausencia ausencia;
 
 
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        protected TextView textView_data;
-        protected TextView textView_hora;
-        protected TextView textView_justificativa;
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        private TextView textView_data;
+        private TextView textView_hora;
+        private TextView textView_justificativa;
 
 
         public ViewHolder(View itemView) {
@@ -35,14 +37,19 @@ public class ListaAusenciaAdapter extends RecyclerView.Adapter<ListaAusenciaAdap
         }
 
     }
-    public ListaAusenciaAdapter(Context context, List<Ausencia> ausencias) {
+    public ListaAusenciaAdapter(Context context, List<Ausencia> ausencias,Ausencia ausencia) {
         this.context = context;
         this.ausencias = ausencias;
+        this.ausencia = ausencia;
     }
+
+
+
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
-        LayoutInflater inflator = LayoutInflater.from(parent.getContext());
-        View view = inflator.inflate(R.layout.item_ausencia,parent,false);
+    public ListaAusenciaAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //Responsavel por inflar o layout dos itens
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ausencia,parent,false);
+
 
         ViewHolder viewHolder = new ViewHolder(view);
 
@@ -51,21 +58,84 @@ public class ListaAusenciaAdapter extends RecyclerView.Adapter<ListaAusenciaAdap
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final ListaAusenciaAdapter.ViewHolder holder, final int position) {
+        //Responsavel por settar os valores na view
+        ausencia = this.ausencias.get(position);
+        holder.textView_justificativa.setText(String.valueOf(ausencia.getJustificativa()));
+        holder.textView_hora.setText(String.valueOf(ausencia.getHoraInicio()));
+        holder.textView_data.setText(String.valueOf(ausencia.getData()));
 
-       final Ausencia ausencia = this.ausencias.get(i);
-        viewHolder.textView_data.setText((CharSequence) ausencia.getData());
-        viewHolder.textView_hora.setText((CharSequence) ausencia.getHoraInicio());
+        setupOnClickListener(holder,ausencia);
+        setupOnLongClickListener(holder,ausencia,posicao);
 
+    }
+
+    private void setupOnLongClickListener(final ViewHolder holder, final Ausencia ausencia,int posicao) {
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                PopupMenu popupMenu = new PopupMenu(context, holder.itemView);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu_opcoes, popupMenu.getMenu());
+
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.op_editar:
+                                editarAusencia(ausencia, posicao);
+                                break;
+                            case R.id.op_remover:
+                                removerAusencia(ausencia, posicao);
+                                break;
+
+                        }
+                        return true;
+                    }
+
+                });
+                popupMenu.show();
+                return true;
+
+            }
+
+
+        });
+    }
+
+    public void editarAusencia(Ausencia ausencia, int posicao) {
+        Toast.makeText(context,"Editando...",Toast.LENGTH_SHORT).show();
+    }
+    public void removerAusencia(Ausencia ausencia, int posicao){
+        this.ausencias.remove(ausencia);
+        notifyItemRemoved(posicao);
+        notifyItemRangeChanged(posicao,getItemCount());
+
+    }
+
+    public void setupOnClickListener(ViewHolder holder, final Ausencia ausencia) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,"Ausencia no dia: "+ausencia.getData(),Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    public long getItemId(int position){
+        return ausencias.get(position).getId();
     }
 
     @Override
     public int getItemCount() {
-        return 0;
-    }
-
-    public int getCount(){
-        return ausencias.size();
+        return this.ausencias.size();
     }
 
 }

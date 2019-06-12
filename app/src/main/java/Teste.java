@@ -62,7 +62,7 @@ public class Teste {
     }
 
     public List<Professor> getProfessor() {
-        Professor prof1 = new Professor(1,"helcio","000-0000");
+        Professor prof1 = new Professor("1","helcio","000-0000");
         professores.add(prof1);
         return professores;
     }

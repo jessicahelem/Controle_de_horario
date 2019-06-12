@@ -10,7 +10,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
         android:id="@+id/dias_da_semena"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,21 +28,18 @@
     <CalendarView
         android:id="@+id/calendario"
         android:layout_width="match_parent"
-        android:layout_height="310dp"
-        android:layout_margin="5dp"
-        android:layout_marginTop="10dp"
-        android:paddingTop="15dp">
+        android:layout_height="320dp"
+        >
 
     </CalendarView>
-
+    </LinearLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#000"
         android:backgroundTint="#000"
         android:layout_margin="20dp"
-        android:paddingTop="10dp"
-        android:layout_marginTop="10dp"
+
         >
 
         <EditText
@@ -46,9 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Horário de início da aula"
-            android:inputType="datetime"
-            android:paddingTop="10dp"
-            android:layout_marginTop="10dp"
+            android:inputType="time"
+
             />
 
     </android.support.design.widget.TextInputLayout>
@@ -59,17 +59,15 @@
         android:textColorHint="#000"
         android:backgroundTint="#000"
         android:layout_margin="20dp"
-        android:paddingTop="10dp"
-        android:layout_marginTop="10dp">
+       >
 
         <EditText
             android:id="@+id/edit_hora_fim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Horário de fim da aula"
-            android:inputType="datetime"
-            android:layout_marginTop="10dp"
-            android:paddingTop="10dp"
+            android:inputType="time"
+
             />
 
     </android.support.design.widget.TextInputLayout>
@@ -90,23 +88,21 @@
         android:paddingTop="10dp">
 
     </Spinner>
-
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#000"
         android:backgroundTint="#000"
         android:layout_margin="20dp"
-        android:layout_weight="0"
         >
 
         <EditText
             android:id="@+id/edit_descricao"
             android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:hint="Descrição"
             android:inputType="text"
-            android:layout_height="250dp"
-            android:layout_weight="0"
+
             />
 
     </android.support.design.widget.TextInputLayout>
@@ -119,7 +115,8 @@
         android:layout_margin="20dp"
         android:onClick="btn_salvar_horario"
         android:layout_marginTop="10dp"
-        android:paddingTop="10dp"></Button>
+        android:paddingTop="10dp"
+        android:background="@drawable/botao"></Button>
 
 
 </LinearLayout>
