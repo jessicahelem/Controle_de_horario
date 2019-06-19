@@ -1,5 +1,8 @@
 package com.example.controledehorarios.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ausencia {
     private long id;
     public String justificativa;
@@ -11,22 +14,29 @@ public class Ausencia {
     public String horaInicio;
     public String horaFim;
 
-    public Ausencia(long id, String justificativa, Professor professor, Turma turma, boolean faltou, int peso, String data, String horaInicio, String horaFim) {
-        this.id = id;
+
+
+
+
+    public Ausencia( String justificativa, String data, String horaInicio) {
+
         this.justificativa = justificativa;
-        this.professor = professor;
-        this.turma = turma;
+        /*this.professor = professor;
+        this.turma = turma;*/
         this.faltou = faltou;
-        this.peso = peso;
+        /*this.peso = peso;*/
         this.data = data;
         this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
+
     }
 
 
-    public long getId() {
+
+
+    public Long getId(){
         return id;
     }
+
 
     public void setId(long id) {
         this.id = id;

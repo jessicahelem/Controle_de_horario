@@ -22,7 +22,7 @@
             >
 
             <EditText
-                android:id="@+id/edit_justificativa"
+                android:id="@+id/edt_justificativa"
                 android:layout_width="match_parent"
                 android:hint="Justificativa"
                 android:inputType="text"
@@ -40,7 +40,7 @@
             android:layout_weight="0">
 
             <EditText
-                android:id="@+id/edit_data"
+                android:id="@+id/edt_data"
                 android:layout_width="match_parent"
                 android:hint="Dia da falta"
                 android:inputType="date"
@@ -58,7 +58,7 @@
             >
 
             <EditText
-                android:id="@+id/edit_hora"
+                android:id="@+id/edt_hora"
                 android:layout_width="match_parent"
                 android:hint="Horário da falta "
                 android:inputType="time"
@@ -75,9 +75,9 @@
             android:layout_gravity="center"
             android:textColor="#000"
             />
-        <Spinner
+       <Spinner
             android:id="@+id/spinner_turma"
-            android:layout_width="match_parent"
+           android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingTop="10dp">

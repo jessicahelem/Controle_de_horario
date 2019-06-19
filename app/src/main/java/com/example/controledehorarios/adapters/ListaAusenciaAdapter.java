@@ -1,6 +1,8 @@
 package com.example.controledehorarios.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -11,15 +13,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.controledehorarios.R;
+import com.example.controledehorarios.activity.declararAusencia;
 import com.example.controledehorarios.models.Ausencia;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaAusenciaAdapter extends RecyclerView.Adapter<ListaAusenciaAdapter.ViewHolder> {
 
     private Context context;
-    private List<Ausencia>ausencias;
+    private List<Ausencia>ausencias = new ArrayList<>();
     private Ausencia ausencia;
+    RecyclerView rv_lista_ausencia;
+
+
+    public ListaAusenciaAdapter(Context context, List<Ausencia> ausencias) {
+        this.context = context;
+        this.ausencias = ausencias;
+    }
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -37,18 +48,14 @@ public class ListaAusenciaAdapter extends RecyclerView.Adapter<ListaAusenciaAdap
         }
 
     }
-    public ListaAusenciaAdapter(Context context, List<Ausencia> ausencias,Ausencia ausencia) {
-        this.context = context;
-        this.ausencias = ausencias;
-        this.ausencia = ausencia;
-    }
 
 
 
     @Override
     public ListaAusenciaAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Responsavel por inflar o layout dos itens
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ausencia,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ausencia,parent,
+                false);
 
 
         ViewHolder viewHolder = new ViewHolder(view);
@@ -58,9 +65,9 @@ public class ListaAusenciaAdapter extends RecyclerView.Adapter<ListaAusenciaAdap
     }
 
     @Override
-    public void onBindViewHolder(final ListaAusenciaAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ListaAusenciaAdapter.ViewHolder holder, final int posicao) {
         //Responsavel por settar os valores na view
-        ausencia = this.ausencias.get(position);
+        ausencia = this.ausencias.get(posicao);
         holder.textView_justificativa.setText(String.valueOf(ausencia.getJustificativa()));
         holder.textView_hora.setText(String.valueOf(ausencia.getHoraInicio()));
         holder.textView_data.setText(String.valueOf(ausencia.getData()));
@@ -83,7 +90,7 @@ public class ListaAusenciaAdapter extends RecyclerView.Adapter<ListaAusenciaAdap
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.op_editar:
-                                editarAusencia(ausencia, posicao);
+                                editarAusencia(holder.itemView,ausencia, posicao);
                                 break;
                             case R.id.op_remover:
                                 removerAusencia(ausencia, posicao);
@@ -103,8 +110,16 @@ public class ListaAusenciaAdapter extends RecyclerView.Adapter<ListaAusenciaAdap
         });
     }
 
-    public void editarAusencia(Ausencia ausencia, int posicao) {
-        Toast.makeText(context,"Editando...",Toast.LENGTH_SHORT).show();
+
+
+    public void editarAusencia(View view,Ausencia ausencia, int posicao) {
+
+        Intent intent = new Intent(context, declararAusencia.class);
+
+        intent.putExtra("ausenciaId", ausencia.getId());
+        context.startActivity(intent);
+        notifyItemChanged(posicao);
+
     }
     public void removerAusencia(Ausencia ausencia, int posicao){
         this.ausencias.remove(ausencia);

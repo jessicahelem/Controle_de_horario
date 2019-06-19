@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.activity_ausencia">
+    tools:context=".activity.Mostrarausencia">
 
 
     <android.support.v7.widget.RecyclerView
@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_add" />
+        android:src="@drawable/ic_add"
+        android:onClick="add_ausencia"/>
 
 
 </android.support.design.widget.CoordinatorLayout>
