@@ -1,18 +1,17 @@
 package com.example.controledehorarios.models;
 
-public class DiaSemana {
+import com.google.gson.annotations.SerializedName;
 
-    public String descricao;
+public enum  DiaSemana  {
 
-    public DiaSemana(String descricao) {
-        this.descricao = descricao;
-    }
 
-    public String getDescricao() {
-        return descricao;
-    }
+    @SerializedName("Segunda Feira") SEGUNDA,
+    @SerializedName("Terça Feira")TERCA,
+    @SerializedName("Quarta Feira")QUARTA,
+    @SerializedName("Quinta Feira")QUINTA,
+    @SerializedName("Sexta Feira")SEXTA;
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+
+
+
 }

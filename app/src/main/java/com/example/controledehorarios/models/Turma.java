@@ -1,26 +1,25 @@
 package com.example.controledehorarios.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Turma {
 
-    private long id;
-    public Professor ministrante;
-    public Disciplina disciplina;
-    public int cargaHorario;
-    public Curso curso;
-    public String especificacao;
-    public String previsaoTermino;
-    public String terminoPeriodo;
+    @SerializedName("id") private long id;
+    @SerializedName("ministrante") private Professor ministrante;
+    @SerializedName("disciplina") private Disciplina disciplina;
+    @SerializedName("carga_horaria") private int cargaHorario;
+    @SerializedName("curso") private Curso curso;
+    @SerializedName("especificacao_disciplina") private String especificacao;
 
 
-    public Turma(long id, Professor ministrante, Disciplina disciplina, int cargaHorario, Curso curso, String especificacao, String previsaoTermino, String terminoPeriodo) {
-        this.id = id;
+    public Turma( Professor ministrante, Disciplina disciplina, int cargaHorario, Curso curso, String especificacao) {
         this.ministrante = ministrante;
         this.disciplina = disciplina;
         this.cargaHorario = cargaHorario;
         this.curso = curso;
         this.especificacao = especificacao;
-        this.previsaoTermino = previsaoTermino;
-        this.terminoPeriodo = terminoPeriodo;
+
+
     }
 
     public long getId() {
@@ -71,20 +70,8 @@ public class Turma {
         this.especificacao = especificacao;
     }
 
-    public String getPrevisaoTermino() {
-        return previsaoTermino;
-    }
 
-    public void setPrevisaoTermino(String previsaoTermino) {
-        this.previsaoTermino = previsaoTermino;
+    public String toString() {
+        return (this.getEspecificacao());
     }
-
-    public String getTerminoPeriodo() {
-        return terminoPeriodo;
-    }
-
-    public void setTerminoPeriodo(String terminoPeriodo) {
-        this.terminoPeriodo = terminoPeriodo;
-    }
-
 }

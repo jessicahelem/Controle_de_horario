@@ -1,17 +1,18 @@
 package com.example.controledehorarios.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Curso {
 
-    public long id;
-    public String descricao;
-    public String tipo;
+    @SerializedName("id") private long id;
+    @SerializedName("descricao") private String descricao;
+    @SerializedName("tipo") private String tipo;
 
-    public Curso(long id, String descricao, String tipo) {
-        this.id = id;
+
+    public Curso(String descricao, String tipo) {
         this.descricao = descricao;
         this.tipo = tipo;
     }
-
 
     public long getId() {
         return id;

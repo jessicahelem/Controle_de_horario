@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.controledehorarios.R;
 
-public class ActivityMostrarAula extends AppCompatActivity {
+public class DeclaracaoDeInteresseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mostrar_aula);
+        setContentView(R.layout.activity_declaracao_de_interesse);
     }
 }

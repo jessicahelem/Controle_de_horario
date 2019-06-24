@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.declararAusencia">
+    tools:context=".activity.cadastrarAusencia">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,19 +54,19 @@
             android:layout_height="wrap_content"
             android:textColorHint="#000"
             android:backgroundTint="#000"
-            android:layout_weight="0"
-            >
+            android:layout_weight="0">
 
             <EditText
-                android:id="@+id/edt_hora"
+                android:id="@+id/edt_data_declaracao"
                 android:layout_width="match_parent"
-                android:hint="Horário da falta "
-                android:inputType="time"
+                android:hint="Data da declaração"
+                android:inputType="date"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
-                />
+                android:layout_weight="0"/>
 
         </android.support.design.widget.TextInputLayout>
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,59 +74,81 @@
             android:textSize="20sp"
             android:layout_gravity="center"
             android:textColor="#000"
+            android:layout_marginTop="30dp"
             />
-       <Spinner
+
+        <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#000"
+        android:backgroundTint="#000"
+        android:layout_weight="0"
+            android:hint="Horário">
+        <Spinner
             android:id="@+id/spinner_turma"
            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:paddingTop="10dp">
 
+           >
         </Spinner>
-        <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-            android:orientation="vertical">
+        </android.support.design.widget.TextInputLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ausente"
-            android:layout_weight="0"
+            android:text="Horário"
+            android:textSize="20sp"
+            android:layout_gravity="center"
             android:textColor="#000"
-            android:textSize="16sp"/>
-        <Switch
-            android:id="@+id/switch_ausencia"
+            android:layout_marginTop="20dp"
+            />
+        <Spinner
+            android:id="@+id/spinner_horario"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            >
+        </Spinner>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:checked="true"
-            android:layout_marginTop="15dp"
+            android:text="Professor"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:layout_marginTop="20dp"
             />
-        </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinner_professor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        >
+
+    </Spinner>
+
+
+
 
         <Button
             android:id="@+id/cadastrar_ausencia_button"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:background="@drawable/botao"
             android:text="Cadastrar"
-            android:textColor="#000"
+            android:textColor="#31d100"
             android:textStyle="bold"
             android:layout_weight="0"
-            android:onClick="cadastrar_ausencia"
-            android:layout_marginTop="60dp"
-
+            android:layout_marginTop="30dp"
+            android:gravity="center"
             />
 
 
 
 
-
-
-
-    </LinearLayout>
-
+</LinearLayout>
 
 
 

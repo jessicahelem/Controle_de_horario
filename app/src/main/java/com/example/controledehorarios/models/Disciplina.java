@@ -1,13 +1,13 @@
 package com.example.controledehorarios.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Disciplina {
 
-    private long id;
-    public String descricao;
+    @SerializedName("id")private long id;
+    @SerializedName("descricao") private String descricao;
 
-
-    public Disciplina(long id, String descricao) {
-        this.id = id;
+    public Disciplina(String descricao) {
         this.descricao = descricao;
     }
 

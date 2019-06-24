@@ -1,11 +1,13 @@
 package com.example.controledehorarios.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Professor {
 
-
-    public String matricula;
-    public String nome;
-    public String cpf;
+   @SerializedName("id") private long id;
+    @SerializedName("matricula")private String matricula;
+   @SerializedName("nome") private String nome;
+    @SerializedName("cpf") public String cpf;
 
     public Professor(String matricula, String nome, String cpf) {
         this.matricula = matricula;
@@ -13,6 +15,14 @@ public class Professor {
         this.cpf = cpf;
     }
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getMatricula() {
         return matricula;
@@ -39,6 +49,8 @@ public class Professor {
     }
 
 
-
+    public String toString() {
+        return (this.getNome());
+    }
 }
 

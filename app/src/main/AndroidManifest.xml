@@ -11,17 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MenuActivity"
-            android:parentActivityName=".activity.Mostrarausencia"></activity>
-        <activity android:name=".activity.horarios_disponiveis_Activity" />
+        <activity android:name=".activity.DeclaracaoDeInteresseActivity"></activity>
         <activity
-            android:name=".activity.ActivityMostrarAula"
-            android:parentActivityName=".activity.ActivityRegistraAula" />
+            android:name=".activity.MenuActivity"
+            android:parentActivityName=".activity.Mostrarausencia" />
         <activity
-            android:name=".activity.Mostrarausencia"
-            android:parentActivityName=".activity.declararAusencia" />
-        <activity android:name=".activity.ActivityRegistraAula" />
-        <activity android:name=".activity.declararAusencia">
+            android:name=".activity.cadastrarAusencia"
+            android:parentActivityName=".activity.cadastrarAusencia" />
+        <activity android:name=".activity.Mostrarausencia">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
